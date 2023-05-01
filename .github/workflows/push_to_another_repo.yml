@@ -20,6 +20,6 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           branch: 'test'
-          github_token: ${{ secrets.GITHUB_ACTION_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           force: true
           repository: "salmonporkbelly/push-target"
