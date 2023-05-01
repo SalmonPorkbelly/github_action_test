@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - name: Before run
         run: |
-            git config —unset-all http.https://github.com/.extraheader
+          git config --unset-all http.https://github.com/.extraheader
       - name: Push to another repo
         uses: ad-m/github-push-action@master
         with:
