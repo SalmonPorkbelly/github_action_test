@@ -16,6 +16,7 @@ jobs:
       - name: Set Git configurations
         run: |
           git config --unset-all http.https://github.com/.extraheader
+          git config --local user.name test_name
       - name: Push to another repo
         uses: ad-m/github-push-action@master
         with:
