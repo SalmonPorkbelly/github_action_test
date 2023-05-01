@@ -19,7 +19,17 @@ jobs:
       - name: Push to another repo
         uses: ad-m/github-push-action@master
         with:
-          branch: 'test'
+          branch: $(git branch --show-current)
           github_token: ${{ secrets.TOKEN }}
           force: true
           repository: "SalmonPorkbelly/push_target"
+          directory: .
+
+#Run ad-m/github-push-action@master
+#  with:
+#    branch: $(git branch --show-current)
+#    github_token: ***
+#    force: true
+#    repository: SalmonPorkbelly/push_target
+#    github_url: https://github.com
+#    directory: .
