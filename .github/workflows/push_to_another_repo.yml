@@ -1,0 +1,25 @@
+name: Push to private repo branch
+on:
+  push:
+    branches:
+      - push_to_another_repo
+  workflow_dispatch:
+
+jobs:
+  push-to-another-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Before run
+        run: |
+            git config —unset-all http.https://github.com/.extraheader
+      - name: Push to another repo
+        uses: ad-m/github-push-action@master
+        with:
+          branch: 'test'
+          github_token: ${{ secrets.GITHUB_ACTION_TOKEN }}
+          force: true
+          repository: "salmonporkbelly/push-target"
