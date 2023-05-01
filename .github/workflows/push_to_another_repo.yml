@@ -18,7 +18,7 @@ jobs:
           git config --unset-all http.https://github.com/.extraheader
           git config --local user.email "test@example.com"
           git config --local user.name "test"
-          git commit -a -m "Add changes"
+#          git commit -a -m "Add changes"
       - name: Push to another repo
         uses: ad-m/github-push-action@master
         with:
