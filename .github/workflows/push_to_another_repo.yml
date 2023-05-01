@@ -16,7 +16,9 @@ jobs:
       - name: Set Git configurations
         run: |
           git config --unset-all http.https://github.com/.extraheader
-          git config --local user.name test_name
+          git config --local user.email "test@example.com"
+          git config --local user.name "test"
+          git commit -a -m "Add changes"
       - name: Push to another repo
         uses: ad-m/github-push-action@master
         with:
@@ -24,5 +26,3 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           force: true
           repository: "SalmonPorkbelly/push_target"
-        env:
-          GIT_COMMITTER_NAME: test_name
