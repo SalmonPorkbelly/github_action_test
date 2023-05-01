@@ -9,16 +9,15 @@ jobs:
   push-to-another-repo:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Set Git configurations
         run: |
           git config --unset-all http.https://github.com/.extraheader
           git config --local user.email "test@example.com"
           git config --local user.name "test"
-          git commit -a -m "Add changes"
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Push to another repo
         uses: ad-m/github-push-action@master
         with:
